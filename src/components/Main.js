@@ -2,6 +2,7 @@ import { Component } from 'react'
 
 import { ImageCom } from './ImageCom'
 import { Intro } from './Intro'
+import { Vmenu } from './Vmenu'
 
 export class Main extends Component{
 
@@ -22,7 +23,10 @@ export class Main extends Component{
 					this.state.isLoading ?
 					<Intro />
 					:
-					<ImageCom />
+					<div>
+						<Vmenu />
+						<ImageCom />
+					</div>
 				}
 			</div>
 		)
