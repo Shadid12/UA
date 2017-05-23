@@ -1,11 +1,22 @@
 import { Component } from 'react'
 import './styles/vmenu.css'
+import $ from 'jquery';
+import { MenuItems } from './MenuItems';
 
 export class Vmenu extends Component{
 	
+	state = {
+		isOpen: false
+	}
 
 	componentDidMount() {
-		this.menu()
+		
+	}
+
+	handleHamburgerAnimation = () => {
+		var i, resize;
+		$("div").toggleClass("cross");
+		this.setState({ isOpen: !(this.state.isOpen) });
 	}
 
 
@@ -13,45 +24,24 @@ export class Vmenu extends Component{
 		return(
 
 <div>
-<nav>
-        <div className="hamburger menu--active">
-            <span className="patty"></span>
-        </div>
-        <ul className="nav-list list__active">
-            <li className="nav__item">
-                <a href="#intro" className="nav__link c_red"><i className="fa fa-home" aria-hidden="true"></i></a>
-            </li>
-            <li className="nav__item">
-                <a href="#intro" className="nav__link c_blue"><i className="fa fa-code" aria-hidden="true"></i></a>
-            </li>
-            <li className="nav__item">
-                <a href="#intro" className="nav__link c_yellow"><i className="fa fa-download" aria-hidden="true"></i></a>
-            </li>
-            <li className="nav__item">
-                <a href="#intro" className="nav__link c_green"><i className="fa fa-envelope" aria-hidden="true"></i></a>
-            </li>
-        </ul>
-    </nav>
+<div className="center">
+  <svg viewBox="0 0 800 600" onClick={this.handleHamburgerAnimation}>
+    <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top" ></path>
+    <path d="M300,320 L540,320" id="middle" ></path>
+    <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+  </svg>
+</div>
+{
+	this.state.isOpen ?
+		<MenuItems />
+	:
+		null
+}
+
 </div>
 
 
-
 		)
-	}
-
-	menu(){
-
-    const burger = document.querySelector('.hamburger');
-    const navList = document.querySelector('.nav-list');
-    
-    burger.addEventListener('click', function(e) {
-        e.preventDefault();
-        burger.classList.toggle('menu--active');
-        navList.classList.toggle('list__active');
-    });
-
-
-
 	}
 }
 

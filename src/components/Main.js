@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { ImageCom } from './ImageCom'
 import { Intro } from './Intro'
 import { Vmenu } from './Vmenu'
+import { Player } from './Player'
 
 export class Main extends Component{
 
@@ -13,7 +14,7 @@ export class Main extends Component{
 	componentDidMount() {
 		setTimeout( ()=> {
 			this.setState( { isLoading: false } )
-		}, 9000)
+		}, 100)
 	}
 
 	render(){
@@ -26,6 +27,7 @@ export class Main extends Component{
 					<div>
 						<Vmenu />
 						<ImageCom />
+						<Player />
 					</div>
 				}
 			</div>
