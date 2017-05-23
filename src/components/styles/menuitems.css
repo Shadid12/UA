@@ -35,6 +35,11 @@
 	border-bottom-color: #ffffff;
 }
 
+.imgClass{
+  height: 60px;
+  width: 60px;
+}
+
 /* --------------------------
   Media Queries
 --------------------------- */
@@ -72,4 +77,14 @@
 		margin-left: .65em;
 		margin-right: .65em;
 	}
+}
+
+
+@media screen and (max-width: 760px){
+
+.imgClass{
+  height: 30px;
+  width: 30px;
+}
+
 }
