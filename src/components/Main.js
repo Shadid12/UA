@@ -14,7 +14,7 @@ export class Main extends Component{
 	componentDidMount() {
 		setTimeout( ()=> {
 			this.setState( { isLoading: false } )
-		}, 100)
+		}, 10000)
 	}
 
 	render(){
